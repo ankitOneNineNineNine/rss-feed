@@ -10,7 +10,7 @@ server.listen(PORT, async () => {
 });
 
 process.on("unhandledRejection", (err: unknown) => {
-  console.log("UNHANDLED REJECTION! 💥 Shutting down...", err);
+  console.log("UNHANDLED REJECTION!", err);
 });
 
 process.on("SIGTERM", () => {
