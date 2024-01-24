@@ -12,12 +12,6 @@ One example of such is Guardian API. Currently only Guardian API is supported. T
 
 - Npm Package Manager
 
-# Settting up the App
-
-- Clone the repo
-- Go inside the project folder
-- Run the command `npm install --legacy-peer-deps`
-
 # Tools Used in the App
 
 - `Node`
@@ -43,9 +37,17 @@ One example of such is Guardian API. Currently only Guardian API is supported. T
 - `coverage`: Run unit test coverage using coverage@v8
 - `prepare`: Install husky
 
+# API
+
+- `/guardian/[section-name]`: This will hit guardian API and return XML Json feed for section provided.
+  <br>
+  Example: After running the project, hit `curl http://localhost:[port]/guardian/politics`
+
 ## How to run this project?
 
 1. Open terminal in desired drive/folder to clone the project
 2. git clone https://github.com/ankitOneNineNineNine/rss-feed.git
 3. Inside the Cloned folder, Open terminal.
-4. Run the command `docker run -it $(docker build -q .)`
+4. Copy content from .env.example to .env
+5. Run the command `docker run -it $(docker build -q .)`
+6. The app will run on PORT 5000. You can change this at your .env PORT
