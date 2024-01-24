@@ -6,8 +6,7 @@ This project uses Guardian API to fetch the json feed, then convert them to w3c 
 
 This project uses Guardian API. Read the Docs: https://open-platform.theguardian.com/documentation/
 This project fetches feed from newspapers and the respective sections using the API.
-One example of such is Guardian API. Currently only Guardian API is supported
-The json feed is converted to RSS XML.
+One example of such is Guardian API. Currently only Guardian API is supported. The json feed is converted to RSS XML.
 
 # Prerequisite
 
