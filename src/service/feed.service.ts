@@ -1,16 +1,13 @@
 import * as GuardianFeedAdapter from "../adapter/guardian-feed.adapter";
+import { NewsPaperTypes } from "../types/feed.types";
 
-export enum FeedTypes {
-  Guardian = "guardian",
-}
-
-const getAdapter = (type = FeedTypes.Guardian) => {
+const getAdapter = (type = NewsPaperTypes.Guardian) => {
   switch (type) {
-    case FeedTypes.Guardian:
+    case NewsPaperTypes.Guardian:
       return GuardianFeedAdapter;
     default:
       return GuardianFeedAdapter;
   }
 };
 
-export const getJsonFeed = (section = "", type = FeedTypes.Guardian) => getAdapter(type).getFeed(section);
+export const getJsonFeed = (section: string, type = NewsPaperTypes.Guardian) => getAdapter(type).getFeed(section);

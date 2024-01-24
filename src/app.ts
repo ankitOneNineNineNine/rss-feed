@@ -1,9 +1,9 @@
-import * as express from "express";
+import express from "express";
 import helmet from "helmet";
-import * as morgan from "morgan";
+import morgan from "morgan";
 
 import { getFeedController } from "./controller/feed.controller";
-import { ErrorHandlingMiddleware, validFeedRequest } from "./middleware";
+import { errorHandler, isValidFeedRequest } from "./middleware";
 
 /** Setup App */
 const app = express();
@@ -17,13 +17,13 @@ app.use(helmet());
 /**
  * Route for Feed Generator
  */
-app.get("/:newspaper/:section", validFeedRequest, getFeedController);
+app.get("/:newspaper/:section", isValidFeedRequest, getFeedController);
 
 /** 404 */
 app.use((_, res) => {
   res.status(404).json("Not Found");
 });
 /** Error Handling Middleware */
-app.use(ErrorHandlingMiddleware);
+app.use(errorHandler);
 
 export default app;

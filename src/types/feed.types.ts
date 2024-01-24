@@ -57,3 +57,12 @@ export type RssInputFeedJson = {
     },
   ];
 };
+
+export enum NewsPaperTypes {
+  Guardian = "guardian",
+}
+
+export type FeedRequestParams = {
+  newspaper: string;
+  section: string;
+};

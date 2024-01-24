@@ -1,2 +1,2 @@
-export * from "./error-handling-middleware";
-export * from "./feed-request-validator";
+export * from "./error-handler.middleware";
+export * from "./feed-request-validator.middleware.";

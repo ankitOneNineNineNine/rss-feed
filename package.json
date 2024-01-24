@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "start": "tsc ",
-    "test": "vitest --silent",
+    "test": "vitest",
     "lint": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.23.8",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.3",
@@ -41,6 +42,7 @@
     "nodemon": "3.0.3",
     "pg": "^8.4.0",
     "typeorm": "^0.3.19",
+    "vitest": "^1.2.1",
     "xml": "^1.0.1"
   },
   "lint-staged": {
