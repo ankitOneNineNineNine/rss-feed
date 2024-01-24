@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
 import { getJsonFeed } from "../service";
+import { addToCache } from "../service/cache";
 import { FeedRequestParams, NewsPaperTypes } from "../types/feed.types";
 import { buildFeed, jsonToRssXml } from "../utils";
 
@@ -14,7 +15,8 @@ export const getFeedController = async (req: Request<FeedRequestParams>, res: Re
       url: feedJson.data.response.edition.webUrl,
       title: feedJson.data.response.edition.webTitle,
     });
-    res.setHeader("content-type", "text/xml");
+
+    addToCache(req.url, feedRss);
     res.send(feedRss);
   } catch (e) {
     return next(e);

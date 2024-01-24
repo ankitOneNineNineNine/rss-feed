@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "allowJs": false,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,

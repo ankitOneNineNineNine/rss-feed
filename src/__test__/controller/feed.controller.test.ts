@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 
 import { mockFeeds } from "../../__mocks__/feeds";
 import { getFeedController } from "../../controller/feed.controller";
+import * as cacheModule from "../../service/cache";
 import * as feedService from "../../service/feed.service";
 import { FeedRequestParams, NewsPaperTypes } from "../../types/feed.types";
 import { buildFeed } from "../../utils";
@@ -55,6 +56,30 @@ describe("Given getFeedController", () => {
         );
 
         expect(jsonToRssXml).toBeCalledWith(buildFeed(mockFeeds), {});
+      });
+      test("Then response value is added to cache", async () => {
+        const value = `xml`;
+        const url = "/guardian/lifeandstyle";
+
+        const jsonToRssXml = vi.fn().mockImplementation(() => value);
+        vi.spyOn(jsonToRssModule, "jsonToRssXml").mockImplementation(jsonToRssXml);
+
+        const addToCache = vi.fn();
+        vi.spyOn(cacheModule, "addToCache").mockImplementation(addToCache);
+
+        await getFeedController(
+          {
+            params: {
+              newspaper: NewsPaperTypes.Guardian,
+              section: "lifeandstyle",
+            },
+            url,
+          } as Request<FeedRequestParams>,
+          {} as Response,
+          (() => {}) as NextFunction,
+        );
+
+        expect(addToCache).toBeCalledWith(url, value);
       });
     });
   });
