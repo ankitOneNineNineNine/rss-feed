@@ -1,8 +1,8 @@
-import * as xml from "xml";
+import xml from "xml";
 
 import { RssInputFeedJson } from "../types/feed.types";
 
-export const jsonToRss = (
+export const jsonToRssXml = (
   json: RssInputFeedJson[],
   additionalInfo: {
     url: string;

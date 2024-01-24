@@ -22,10 +22,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["jest"],
+    "types": ["vitest/globals"],
   },
   "ts-node": {
     "files": true,
   },
+  "exclude": ["__test__"],
   "include": ["src"],
 }
