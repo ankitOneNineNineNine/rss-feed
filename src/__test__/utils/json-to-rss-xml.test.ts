@@ -13,7 +13,7 @@ describe("Given jsonToRssXml", () => {
       });
       expect(xml).toBe(
         //eslint-disable-next-line
-        `<?xml version=\"1.0\" encoding=\"UTF-8\"?><rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\"><channel><atom:link href=\"${demoUrl}" rel=\"self\" type=\"application/rss+xml\"/><title>${demoTitle}</title><link>http://abc.com</link><description>${demoTitle}</description><language>en-US</language><item><title>${demoFeed.webTitle}</title><pubDate>${new Date(demoFeed.webPublicationDate).toUTCString()}</pubDate><guid isPermaLink=\"true\">${demoFeed.webUrl}</guid><description><![CDATA[${demoFeed.sectionName}]]></description></item></channel></rss>`,
+        `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/"><channel><atom:link href="${demoUrl}" rel="self" type="application/rss+xml"/><title>${demoTitle}</title><link>${demoUrl}</link><description>${demoTitle}</description><language>en-US</language><item><title>${demoFeed.webTitle}</title><pubDate>${new Date(demoFeed.webPublicationDate).toUTCString()}</pubDate><guid isPermaLink="true">${demoFeed.webUrl}</guid><description><![CDATA[${demoFeed.fields.trailText}]]></description><media:thumbnail url="${demoFeed.fields.thumbnail}" height="640" width="480"></media:thumbnail></item></channel></rss>`,
       );
     });
   });

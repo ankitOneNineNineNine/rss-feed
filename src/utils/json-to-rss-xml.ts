@@ -15,6 +15,7 @@ export const jsonToRssXml = (
         _attr: {
           version: "2.0",
           "xmlns:atom": "http://www.w3.org/2005/Atom",
+          "xmlns:media": "http://search.yahoo.com/mrss/",
         },
       },
       {

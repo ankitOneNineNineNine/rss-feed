@@ -28,8 +28,19 @@ describe("Given buildFeed", () => {
               },
               {
                 description: {
-                  _cdata: demoFeed.sectionName,
+                  _cdata: demoFeed.fields.trailText,
                 },
+              },
+              {
+                "media:thumbnail": [
+                  {
+                    _attr: {
+                      height: "640",
+                      url: demoFeed.fields.thumbnail,
+                      width: "480",
+                    },
+                  },
+                ],
               },
             ],
           },

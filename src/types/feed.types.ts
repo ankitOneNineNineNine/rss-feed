@@ -10,6 +10,10 @@ export type Feed = {
   isHosted: boolean;
   pillarId: string;
   pillarName: string;
+  fields: {
+    trailText: string;
+    thumbnail: string;
+  };
 };
 
 export type Edition = {
@@ -48,12 +52,15 @@ export type RssInputFeedJson = {
       pubDate: string;
     },
     {
-      guid: [{ _attr: { isPermaLink: true } }, string];
+      guid: [{ _attr: { isPermaLink: boolean } }, string];
     },
     {
       description: {
         _cdata: string;
       };
+    },
+    {
+      "media:thumbnail": [{ _attr: { url: string; height: string; width: string } }];
     },
   ];
 };

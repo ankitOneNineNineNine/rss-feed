@@ -5,7 +5,8 @@ const formatFeedJson = (feeds: Feed[]) =>
     title: feed.webTitle,
     date: feed.webPublicationDate,
     url: feed.webUrl,
-    content: feed.sectionName,
+    content: feed.fields.trailText,
+    thumbnail: feed.fields.thumbnail,
   }));
 
 export const buildFeed = (feeds: Feed[]): RssInputFeedJson[] =>
@@ -22,6 +23,9 @@ export const buildFeed = (feeds: Feed[]): RssInputFeedJson[] =>
         description: {
           _cdata: feed.content,
         },
+      },
+      {
+        "media:thumbnail": [{ _attr: { url: feed.thumbnail, height: "640", width: "480" } }],
       },
     ],
   }));

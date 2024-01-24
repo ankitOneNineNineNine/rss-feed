@@ -7,5 +7,6 @@ export const getFeed = (section: string) =>
   axios.get<{ response: FeedResponse }>(`https://content.guardianapis.com/${section}`, {
     params: {
       "api-key": GUARDIAN_APIKEY,
+      "show-fields": "trailText,thumbnail",
     },
   });
