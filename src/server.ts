@@ -11,9 +11,6 @@ server.listen(PORT, async () => {
 
 process.on("unhandledRejection", (err: unknown) => {
   console.log("UNHANDLED REJECTION! 💥 Shutting down...", err);
-  server.close(() => {
-    process.exit(1);
-  });
 });
 
 process.on("SIGTERM", () => {

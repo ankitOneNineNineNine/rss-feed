@@ -3,6 +3,7 @@ import { config } from "dotenv";
 config();
 
 export const PORT = process.env.PORT;
+export const GUARDIAN_APIKEY = process.env.GUARDIAN_APIKEY;
 export const DB_URL = process.env.DB_URL;
 export const DB_PASSWORD = process.env.DB_PASSWORD;
 export const DB_HOST = process.env.DB_HOST;

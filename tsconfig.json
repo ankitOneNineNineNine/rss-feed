@@ -11,9 +11,6 @@
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@/*": ["src/*"],
-    },
 
     /* Bundler mode */
     "moduleResolution": "Node",
@@ -30,6 +27,5 @@
   "ts-node": {
     "files": true,
   },
-  "files": ["src/types.d.ts"],
   "include": ["src"],
 }

@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
 
+import { AppError } from "../utils";
+
 const sendErrorDev = (err: unknown, _req: Request, res: Response) => {
-  if (err instanceof Error)
+  if (err instanceof AppError) {
     return res.status(err.status || 500).json({
       status: err.status || 500,
-      message: err.detail || err.message,
+      message: err.details || err.message,
     });
+  }
 
   return res.status(500).json({
     status: 500,
@@ -14,7 +17,7 @@ const sendErrorDev = (err: unknown, _req: Request, res: Response) => {
 };
 
 const sendErrorProd = (err: unknown, _req: Request, res: Response) => {
-  if (err instanceof Error) return res.status(err.status || 500).json(err.message || "Something went Wrong!");
+  if (err instanceof AppError) return res.status(err.status || 500).json(err.message || "Something went Wrong!");
   return res.status(500).json("Something went Wrong!");
 };
 
