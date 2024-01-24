@@ -2,9 +2,8 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 
-import { getFeedController } from "./controller/feed.controller";
-import { errorHandler, isValidFeedRequest } from "./middleware";
-import { checkCache } from "./middleware/check-cache-middleware";
+import { getFeedController } from "./controller";
+import { checkCache, errorHandler, isValidFeedRequest } from "./middleware";
 
 /** Setup App */
 const app = express();

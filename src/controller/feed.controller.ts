@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import { getJsonFeed } from "../service";
-import { addToCache } from "../service/cache";
+import { addToCache, getJsonFeed } from "../service";
 import { FeedRequestParams, NewsPaperTypes } from "../types/feed.types";
 import { buildFeed, jsonToRssXml } from "../utils";
 

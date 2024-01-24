@@ -1,4 +1,4 @@
-import * as GuardianFeedAdapter from "../adapter/guardian-feed.adapter";
+import * as GuardianFeedAdapter from "../adapter";
 import { NewsPaperTypes } from "../types/feed.types";
 
 const getAdapter = (type = NewsPaperTypes.Guardian) => {

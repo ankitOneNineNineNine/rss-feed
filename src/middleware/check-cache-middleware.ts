@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import { cacheGet } from "../service/cache";
+import { cacheGet } from "../service";
 
 export const checkCache = (req: Request, res: Response, next: NextFunction) => {
   const key = req.url;
