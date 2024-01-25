@@ -4,6 +4,7 @@ import morgan from "morgan";
 
 import { getFeedController } from "./controller";
 import { checkCache, errorHandler, isValidFeedRequest } from "./middleware";
+import { setXmlResponseHeader } from "./middleware/set-xml-response-header";
 
 /** Setup App */
 const app = express();
@@ -14,16 +15,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
 
-/** Set XML response header for all routes */
-app.use((_req, res, next) => {
-  res.setHeader("content-type", "text/xml");
-  next();
-});
-
 /**
  * Route for Feed Generator
  */
-app.get("/:newspaper/:section", isValidFeedRequest, checkCache, getFeedController);
+app.get("/:newspaper/:section", isValidFeedRequest, setXmlResponseHeader, checkCache, getFeedController);
 
 /** 404 */
 app.use((_, res) => {
