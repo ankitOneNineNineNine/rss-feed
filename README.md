@@ -6,7 +6,9 @@ This project uses Guardian API to fetch the json feed, then convert them to w3c 
 
 This project uses Guardian API. Read the Docs: https://open-platform.theguardian.com/documentation/
 This project fetches feed from newspapers and the respective sections using the API.
-One example of such is Guardian API. Currently only Guardian API is supported. The json feed is converted to RSS XML.
+One example of such is Guardian API. The json feed is converted to RSS XML.
+
+<b>Currently only Guardian API is supported.</b>
 
 # Prerequisite
 
@@ -39,9 +41,15 @@ One example of such is Guardian API. Currently only Guardian API is supported. T
 
 # API
 
-- `/guardian/[section-name]`: This will hit guardian API and return XML Json feed for section provided.
+- `/[newspaper]/[section-name]`: This will hit respective API for (newspaper) and return JSION feed for section provided. The returned JSON value will be converted to RSS XML
   <br>
   Example: After running the project, hit `curl http://localhost:[port]/guardian/politics`
+
+  ### Supported nespaper for routes
+
+  - `Guardian` - `curl http://localhost:[port]/guardian/[section-name]`
+    <br>
+    <i> section-name needs to be in kebab-case </i>
 
 ## How to run this project?
 
@@ -50,4 +58,5 @@ One example of such is Guardian API. Currently only Guardian API is supported. T
 3. Inside the Cloned folder, Open terminal.
 4. Copy content from .env.example to .env
 5. Run the command `docker run -it $(docker build -q .)`
-6. The app will run on PORT 5000. You can change this at your .env PORT
+   <br>
+   <i>The app will run on PORT 5000. You can change this at your .env variable - PORT</i>
