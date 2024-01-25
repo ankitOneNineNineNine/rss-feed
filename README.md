@@ -57,6 +57,6 @@ One example of such is Guardian API. The json feed is converted to RSS XML.
 2. git clone https://github.com/ankitOneNineNineNine/rss-feed.git
 3. Inside the Cloned folder, Open terminal.
 4. Copy content from .env.example to .env
-5. Run the command `docker run -it $(docker build -q .)`
+5. Run the command `docker run -p <PORT>:<PORT> -it $(docker build -q .)`
    <br>
-   <i>The app will run on PORT 5000. You can change this at your .env variable - PORT</i>
+   <i>The app will run on PORT 5000 based on .env.example. You can change this at your .env variable - PORT</i>
